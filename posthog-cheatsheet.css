@@ -54,7 +54,7 @@ h1 { font-size: 22px; letter-spacing: -0.5px; }
   font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
   color: #1d1f27; margin-bottom: 4px;
 }
-.hero p { font-size: 12.5px; line-height: 1.4; color: #333; }
+.hero p { font-size: 11.5px; line-height: 1.4; color: #333; }
 .hero strong { background: #ffe066; padding: 1px 4px; border-radius: 3px; }
 .quote {
   background: #f4f1ea; color: #1d1f27; padding: 10px 12px; border-radius: 8px;
@@ -196,7 +196,7 @@ a.setup-cmd:hover { filter: brightness(1.1); }
 @media screen {
   /* Bump descriptive/body copy by 1px for easier on-screen reading.
      Headers, labels, badges, and code keep their print sizes. */
-  .hero p   { font-size: 13.5px; }
+  .hero p   { font-size: 12.5px; }
   .quote    { font-size: 13px; }
   .surface  { font-size: 12.5px; }
   .view     { font-size: 12px; }
