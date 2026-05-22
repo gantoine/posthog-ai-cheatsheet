@@ -31,18 +31,18 @@
   <div class="main">
     <div class="row">
     <div class="card">
-      <h3><span class="num">1</span> Where to access it</h3>
+      <h3>Where to access it</h3>
       <div class="card-body"><div class="surfaces"><div class="surface"><b>In-app sidebar (Max)</b>Chat assistant inside posthog.com</div><div class="surface"><b>MCP server</b>Claude Code, Cursor, Codex, Gemini, Claude Desktop, Windsurf, Zed, VS Code</div><div class="surface"><b>Slack</b>Answers questions and writes code in your team Slack</div><div class="surface"><b>Skills</b>Reusable instruction units agents call via MCP. Teach once, reuse everywhere.</div></div></div>
     </div>
     
     <div class="card">
-      <h3><span class="num">2</span> Tips &amp; tricks</h3>
+      <h3>Tips &amp; tricks</h3>
       <div class="card-body"><div class="tips"><div class="tip"><div class="tnum">1</div><div><b>Preview HogQL before you persist.</b> Run <code>query-generate-hogql-from-question</code> first, eyeball the SQL, then call <code>insight-create-from-query</code>.</div></div><div class="tip"><div class="tnum">2</div><div><b>AI is the SQL finisher, not the author.</b> Write SQL to ~80–90% yourself, then let Max/MCP close the gap. Best speed-to-correctness ratio.</div></div><div class="tip"><div class="tnum">3</div><div><b>MCP calls are almost free, so use them in CI.</b> Ask “is checkout worse than last week?” <em>before</em> you merge. Cheaper than post-deploy alerts.</div></div><div class="tip"><div class="tnum">4</div><div><b>Review every tool call.</b> MCP servers are prompt-injection targets. A hostile event could trick an LLM into writing flags. Default to manual approval.</div></div></div></div>
     </div>
     </div>
 <div class="row">
     <div class="card">
-      <h3><span class="num">3</span> Customer patterns in the wild</h3>
+      <h3>Customer patterns in the wild</h3>
       <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🛠 AI app-builder</h4><span class="stat">multi-stack</span><div class="body">Engineer uses LLM analytics + experiments + flags as one stack. Spotted unequal attention allocation in a trace, rolled fix behind a flag without leaving the surface.</div><div class="punch">Power move: A/B the observability tools themselves, not just the prompts.</div></div><div class="pattern"><h4>🐘 Dev-first Postgres</h4><span class="stat">10× YoY</span><div class="body">Consolidated 3+ analytics tools onto PostHog. Used AI for gnarly SQL their PMs couldn't write, then found AI code-gen as top acquisition channel.</div><div class="punch">AI-generated SQL turned a PM bottleneck into a discovery channel.</div></div><div class="pattern"><h4>🔎 AI semantic search</h4><span class="stat">days → 1 session</span><div class="body">Eng lead pairs AI assistant with session replay: AI finishes the last 10–20% of SQL, replays show <em>why</em> anomalies happened.</div><div class="punch">Analyst-to-engineer round trip collapses to one debugging session.</div></div></div></div>
     </div>
     </div>

@@ -31,13 +31,13 @@
   <div class="main">
     <div class="row">
     <div class="card">
-      <h3><span class="num">1</span> Tips &amp; tricks</h3>
+      <h3>Tips &amp; tricks</h3>
       <div class="card-body"><div class="tips wide"><div class="tip"><div class="tnum">1</div><div><b>Flag-filtered replay = your deployment monitor.</b> Flip for a small %, open Replay filtered by the flag, watch 20–50 sessions. Faster than alerting; shows behavior, not error counts. <em>3+ teams in research.</em></div></div><div class="tip"><div class="tnum">2</div><div><b>Flag everything by default.</b> “We try to feature flag everything we are releasing.” Kill switches, gradual rollouts, A/B, rollbacks all become free downstream.</div></div><div class="tip"><div class="tnum">3</div><div><b>Flags are runtime UX config, not just code branches.</b> One AI team drives a “we're seeing issues” banner via a flag toggled by an error-monitor webhook. Wire toggles to <em>ops signals</em>, not humans.</div></div><div class="tip"><div class="tnum">4</div><div><b>History tab is your audit log.</b> Growth team uses it as primary “what changed and when?” when investigating data anomalies, especially valuable when AI agents have flag access.</div></div><div class="tip"><div class="tnum">5</div><div><b>Use flag conditions for survey targeting.</b> Skip weekly manual cohort refreshes. Flag conditions in survey targeting solve the same problem with no maintenance loop.</div></div></div></div>
     </div>
     </div>
 <div class="row">
     <div class="card">
-      <h3><span class="num">2</span> Customer patterns in the wild</h3>
+      <h3>Customer patterns in the wild</h3>
       <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>⚡ Solo-dev AI startup</h4><span class="stat">automated honesty</span><div class="body">Wired error-monitor webhook to a flag controlling an in-product status banner. OOM errors → banner flips automatically → users see “we're experiencing issues.” No human in loop.</div><div class="punch">Flags closed the gap between “infra knows” and “users know.”</div></div><div class="pattern"><h4>🏗 B2B infra (~30 eng)</h4><span class="stat">flag-rollout + replay</span><div class="body">Every feature ships behind a flag. As soon as it's live, they filter recordings by that flag and watch employees use it in-office before widening to customers.</div><div class="punch">Caught issues pre-customer-rollout without writing any custom monitoring.</div></div><div class="pattern"><h4>🛒 Mid-market ecom (ex-Heap)</h4><span class="stat">one workflow</span><div class="body">Director of eng listed flags + experiments as explicit pull factors (Heap had neither). First A/B test on a “Shop Now” redesign, used flag-filtered replay to understand <em>why</em>.</div><div class="punch">Flags + experiments + replay aren't three tools. They're one workflow.</div></div></div></div>
     </div>
     </div>

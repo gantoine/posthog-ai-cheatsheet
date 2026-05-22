@@ -31,19 +31,19 @@
   <div class="main">
     <div class="row">
     <div class="card">
-      <h3><span class="num">1</span> Three views, not one</h3>
+      <h3>Three views, not one</h3>
       <div class="card-body"><div class="threeview"><div class="view"><b class="head">Heatmap</b><span class="sub">Position-based</span>Clicks/movements by pixel. Clicks don't need a clickable element. See where users <em>tried</em> to click on dead pixels. <b>Open for discovery.</b></div><div class="view"><b class="head">Clickmap</b><span class="sub">Element-based</span>Autocapture badge on each clickable element with total + rage-click counts. Resilient to layout shifts. <b>Open for direct comparison.</b></div><div class="view"><b class="head">Scrollmap</b><span class="sub">Depth gradient</span>Requires <code>$pageleave</code> events. Is the hero CTA above the fold? Does anyone reach the FAQ? <b>Open for reach.</b></div></div></div>
     </div>
     </div>
 <div class="row">
     <div class="card">
-      <h3><span class="num">2</span> Tips &amp; tricks</h3>
+      <h3>Tips &amp; tricks</h3>
       <div class="card-body"><div class="tips wide"><div class="tip"><div class="tnum">1</div><div><b>Use the Toolbar, not the in-app Heatmaps scene.</b> Toolbar overlays heatmaps on the live site. Works on auth-gated pages, catches ~10× more issues, lets you create actions from elements without leaving the page.</div></div><div class="tip"><div class="tnum">2</div><div><b>Pair heatmaps with rage-click-filtered Replays.</b> <code>$rageclick</code> + <code>feature_flag = new-checkout</code> = debugging a release in two clicks. Jump from Replay timestamp straight to the aggregate heatmap.</div></div><div class="tip"><div class="tnum">3</div><div><b>Wildcard URLs for templated pages.</b> <code>/products/*</code>, <code>/posts/*</code>, <code>/users/:id</code>. Difference between “12 clicks, meaningless” and “12,000 clicks, here's what actually happens.”</div></div><div class="tip"><div class="tnum">4</div><div><b>Scroll depth is a property on every pageview.</b> Use <code>$prev_pageview_max_scroll_percentage</code> as a filter/metric anywhere: funnels, experiments. “Reached 80% before clicking CTA.”</div></div><div class="tip"><div class="tnum">5</div><div><b>Autocapture clicks ARE the quantitative heatmap signal.</b> Query click counts in HogQL, use them as experiment goals, hand them to an agent via MCP. Same data, three surfaces.</div></div></div></div>
     </div>
     </div>
 <div class="row">
     <div class="card">
-      <h3><span class="num">3</span> Customer patterns + bonus</h3>
+      <h3>Customer patterns + bonus</h3>
       <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🌐 Webshare</h4><span class="stat">4–5% lifts</span><div class="body">Collapsed Mixpanel + Hotjar + FullStory into PostHog. ~20 experiments at any moment; small UI tweaks drive lifts they wouldn't have spotted without heatmap → replay → experiment pointing at the same place.</div><div class="punch">It's not the heatmap alone. It's the heatmap as the trigger for the experiment.</div></div><div class="pattern"><h4>✍️ Grantable</h4><span class="stat">“pull more in”</span><div class="body">AI grant-writing tool replaced Microsoft Clarity with PostHog Heatmaps as part of a consolidation stack (also replaced Sentry, Intercom, Zapier-flavored workflows).</div><div class="punch">Cheapest way to “buy” heatmaps is to use the one shipping next to your analytics.</div></div><div class="pattern"><h4>🤖 Bot detection bonus</h4><span class="stat">(0, 0) clusters</span><div class="body">Some teams use heatmap click data to flag automated traffic that user-agent strings miss, like scripts hammering coordinate <code>(0, 0)</code> to defeat idle timers. Filter them, every insight downstream gets cleaner.</div><div class="punch">Heatmaps as a data-quality tool, not just UX.</div></div></div></div>
     </div>
     </div>

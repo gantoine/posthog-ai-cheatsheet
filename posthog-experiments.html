@@ -31,18 +31,18 @@
   <div class="main">
     <div class="row">
     <div class="card">
-      <h3><span class="num">1</span> Test types you can run</h3>
+      <h3>Test types you can run</h3>
       <div class="card-body"><div class="chips"><div class="chip"><b>A/A</b><span>sanity-check setup</span></div><div class="chip"><b>A/B/n</b><span>>2 variants</span></div><div class="chip"><b>Holdout</b><span>long-term combined effect</span></div><div class="chip"><b>Redirect</b><span>split traffic between URLs</span></div><div class="chip"><b>Fake door</b><span>measure demand pre-build</span></div><div class="chip"><b>New-user</b><span>first-time users only</span></div><div class="chip"><b>LLM A/B</b><span>prompts, models, agents</span></div></div></div>
     </div>
     
     <div class="card">
-      <h3><span class="num">2</span> Tips &amp; tricks</h3>
+      <h3>Tips &amp; tricks</h3>
       <div class="card-body"><div class="tips"><div class="tip"><div class="tnum">1</div><div><b>Bootstrap flags on the server, not the client.</b> Browser fetch = flash of control variant + ad-blocker holes. Pass the flag with the page render.</div></div><div class="tip"><div class="tnum">2</div><div><b>Run an A/A test first.</b> Both variants identical. A persistent gap signals a setup bug: events dropped, users bouncing between variants, bad split.</div></div><div class="tip"><div class="tnum">3</div><div><b>Filter ineligible users <em>before</em> the flag check.</b> Otherwise everyone hitting that code path gets an exposure, lift gets diluted by zero-effect users.</div></div><div class="tip"><div class="tnum">4</div><div><b>Don't act before you hit sample size.</b> Looking is fine. Acting on early numbers isn't. Watch win prob &amp; effect size over time, not today.</div></div><div class="tip"><div class="tnum">5</div><div><b>Test the experiment itself with 5–10% first.</b> If the variant is broken at 50% rollout, users are contaminated, and you can't restart cleanly.</div></div></div></div>
     </div>
     </div>
 <div class="row">
     <div class="card">
-      <h3><span class="num">3</span> Customer patterns in the wild</h3>
+      <h3>Customer patterns in the wild</h3>
       <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🤝 Co-founder matching</h4><span class="stat">+40% messages</span><div class="body">4-variant test hiding stale profiles at 3/6/9/12 weeks; 6-week won (+35% match acceptance). Same team killed a feature when basically nobody used the minimal version.</div><div class="punch">Experiments aren't just for picking winners. They're for picking <em>how aggressive</em>, and killing without sunk-cost guilt.</div></div><div class="pattern"><h4>⚖️ AI model comparison</h4><span class="stat">19× volume</span><div class="body">Anonymous-LLM voting product. Every UI change risks skewing rankings, so they experiment on everything: button placement, swipe redesigns, AI routers. Event volume 19× in 6 months without ranking drift.</div><div class="punch">Experiments aren't just about lift. They're about not silently breaking the dataset you depend on.</div></div><div class="pattern"><h4>⚙️ AI app-building platform</h4><span class="stat">flags + exp + LLM</span><div class="body">Flags for gradual rollouts, experiments for new ideas, traces for oddness. When GPT-5 shipped weird, they didn't guess. They inspected traces and found attention-distribution changes.</div><div class="punch">“The change got worse” doesn't show up as a crash; you need trace-level data to even notice.</div></div></div></div>
     </div>
     </div>

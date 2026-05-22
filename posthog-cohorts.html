@@ -31,18 +31,18 @@
   <div class="main">
     <div class="row">
     <div class="card">
-      <h3><span class="num">1</span> Honest caveats (from the team)</h3>
+      <h3>Honest caveats (from the team)</h3>
       <div class="card-body"><div class="bullets"><div class="bullet"><b>No survey-answer filter yet.</b> Use survey branching for answer-level routing.</div><div class="bullet"><b>Autocapture cohorts at scale = labor-intensive.</b> Works for early-stage; refresh tax grows.</div><div class="bullet"><b>Cohort path is buried in some views.</b> Replay frustration-signals filter takes ~4 clicks.</div></div></div>
     </div>
     
     <div class="card">
-      <h3><span class="num">2</span> Tips &amp; tricks</h3>
+      <h3>Tips &amp; tricks</h3>
       <div class="card-body"><div class="tips"><div class="tip"><div class="tnum">1</div><div><b>Pin cohorts to your sidebar.</b> Multiple customers got lost mid-workflow. The sidebar is customizable, but almost nobody discovers this. Cheap win.</div></div><div class="tip"><div class="tnum">2</div><div><b>Cohort drill-down as navigation, not analysis.</b> Replay path: dashboard → funnel → cohort → recording. Build the funnel, materialize the failing cohort, drill in.</div></div><div class="tip"><div class="tnum">3</div><div><b>Survey respondents → cohort → follow-up.</b> Cohort survey takers, then target with a deeper second survey or interview booking. Surveys become a research-recruitment funnel.</div></div><div class="tip"><div class="tnum">4</div><div><b>Autocapture actions as cohort seeds.</b> Pre-instrumentation products can still build behavioral cohorts: autocapture → action → cohort. Unblocks early-stage teams.</div></div><div class="tip"><div class="tnum">5</div><div><b>Geographic cohorts for multi-market redesigns.</b> US vs. UK cohorts on replay frustration signals give per-market before/after for any rollout.</div></div></div></div>
     </div>
     </div>
 <div class="row">
     <div class="card">
-      <h3><span class="num">3</span> Customer patterns in the wild</h3>
+      <h3>Customer patterns in the wild</h3>
       <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🎓 EdTech startup (~900 users)</h4><span class="stat">~50% response</span><div class="body">PM wanted to survey only students who used the AI tutor “enough.” Built a weekly autocapture → static cohort → re-target loop. Painful but worked.</div><div class="punch">Cohorts unlock behavioral targeting even without instrumented events, if you can stomach the refresh tax.</div></div><div class="pattern"><h4>🏢 B2B SaaS (1.5M MAU)</h4><span class="stat">replaced Pendo</span><div class="body">Growth PM migrated all surveys to PostHog: satisfaction survey → respondents become a cohort → that cohort gets an interview-booking survey.</div><div class="punch">Cohorts + surveys = automated user research recruitment, no standalone tooling.</div></div><div class="pattern"><h4>🌍 Multi-country SaaS</h4><span class="stat">phased rollout</span><div class="body">PM built US and UK cohorts, applied them to replay frustration signals during a beta. Clean before/after view per market, used to gate the wider rollout.</div><div class="punch">Cohorts as a per-market product-quality lens during a phased rollout.</div></div></div></div>
     </div>
     </div>

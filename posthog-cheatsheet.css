@@ -31,17 +31,17 @@ header {
 .logo {
   width: 38px; height: 38px; background: var(--accent); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-weight: 800; color: #fff; font-size: 18px;
+  font-weight: 800; color: #fff; font-size: 19px;
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
   flex-shrink: 0;
 }
 .logo svg { width: 22px; height: 22px; display: block; }
 h1 { font-size: 22px; letter-spacing: -0.5px; }
-.tagline { color: #f4f1ea; font-size: 11px; opacity: 0.75; }
+.tagline { color: #f4f1ea; font-size: 12px; opacity: 0.75; }
 .pill {
   background: var(--accent); color: #fff;
   padding: 6px 12px; border-radius: 999px;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 .hero {
@@ -54,11 +54,11 @@ h1 { font-size: 22px; letter-spacing: -0.5px; }
   font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
   color: #1d1f27; margin-bottom: 4px;
 }
-.hero p { font-size: 11.5px; line-height: 1.4; color: #333; }
+.hero p { font-size: 12.5px; line-height: 1.4; color: #333; }
 .hero strong { background: #ffe066; padding: 1px 4px; border-radius: 3px; }
 .quote {
   background: #f4f1ea; color: #1d1f27; padding: 10px 12px; border-radius: 8px;
-  font-size: 11px; line-height: 1.4; border-left: 4px solid var(--accent);
+  font-size: 12px; line-height: 1.4; border-left: 4px solid var(--accent);
 }
 .main {
   display: flex; flex-direction: column; gap: 10px;
@@ -80,47 +80,41 @@ h1 { font-size: 22px; letter-spacing: -0.5px; }
   display: flex; align-items: center; gap: 8px;
   flex-shrink: 0;
 }
-.card h3 .num {
-  background: var(--accent); color: #fff;
-  width: 22px; height: 22px; border-radius: 6px;
-  display: inline-flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 800;
-}
 .card-body { flex: 1; display: flex; flex-direction: column; }
 
 /* grid2 */
 .surfaces { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; flex: 1; }
-.surface { background: #f4f1ea; border-radius: 6px; padding: 7px 9px; font-size: 10.5px; line-height: 1.35; }
-.surface b { color: #1d1f27; display: block; font-size: 11px; margin-bottom: 1px; }
+.surface { background: #f4f1ea; border-radius: 6px; padding: 7px 9px; font-size: 11.5px; line-height: 1.35; }
+.surface b { color: #1d1f27; display: block; font-size: 12px; margin-bottom: 1px; }
 
 /* grid3 */
 .threeview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; flex: 1; }
-.view { background: #f4f1ea; border-radius: 6px; padding: 8px 9px; font-size: 10px; line-height: 1.35; border-top: 3px solid var(--accent); display: flex; flex-direction: column; }
-.view b.head { color: #1d1f27; font-size: 11.5px; display: block; }
-.view .sub { color: var(--accent); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; display: block; font-weight: 700; }
+.view { background: #f4f1ea; border-radius: 6px; padding: 8px 9px; font-size: 11px; line-height: 1.35; border-top: 3px solid var(--accent); display: flex; flex-direction: column; }
+.view b.head { color: #1d1f27; font-size: 12.5px; display: block; }
+.view .sub { color: var(--accent); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; display: block; font-weight: 700; }
 
 /* chips */
 .chips { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; align-content: flex-start; }
 .chip {
   background: #f4f1ea; border-left: 3px solid var(--accent);
-  padding: 5px 9px; border-radius: 6px; font-size: 10.5px;
+  padding: 5px 9px; border-radius: 6px; font-size: 11.5px;
 }
 .chip b { color: #1d1f27; margin-right: 4px; }
-.chip span { color: #666; font-style: italic; font-size: 9.5px; }
+.chip span { color: #666; font-style: italic; font-size: 10.5px; }
 
 /* tips */
 .tips { display: grid; gap: 6px; flex: 1; align-content: space-between; }
 .tips.wide { grid-template-columns: 1fr 1fr; column-gap: 14px; }
 .tip {
   display: grid; grid-template-columns: 22px 1fr; gap: 8px;
-  font-size: 10.5px; line-height: 1.4;
+  font-size: 11.5px; line-height: 1.4;
   align-items: start;
 }
 .tip .tnum {
   background: #1d1f27; color: #f4f1ea; border-radius: 50%;
   width: 22px; height: 22px;
   display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 11px; flex-shrink: 0;
+  font-weight: 800; font-size: 12px; flex-shrink: 0;
 }
 .tip b { color: #1d1f27; }
 
@@ -128,14 +122,14 @@ h1 { font-size: 22px; letter-spacing: -0.5px; }
 .bullets { display: grid; gap: 5px; align-content: space-between; }
 .bullet {
   background: #f4f1ea; border-radius: 6px; padding: 6px 10px;
-  font-size: 10.5px; line-height: 1.4; border-left: 3px solid var(--accent);
+  font-size: 11.5px; line-height: 1.4; border-left: 3px solid var(--accent);
 }
 
 /* patterns */
 .pattern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; flex: 1; }
 .pattern {
   background: #f4f1ea; border-radius: 6px;
-  padding: 8px 10px; font-size: 10px; line-height: 1.4;
+  padding: 8px 10px; font-size: 11px; line-height: 1.4;
   display: flex; flex-direction: column;
 }
 .pattern h4 { font-size: 11px; color: #1d1f27; margin-bottom: 4px; }
@@ -147,7 +141,7 @@ h1 { font-size: 22px; letter-spacing: -0.5px; }
 }
 .stat {
   display: inline-block; background: var(--accent); color: #fff;
-  padding: 1px 6px; border-radius: 4px; font-weight: 700; font-size: 9.5px;
+  padding: 1px 6px; border-radius: 4px; font-weight: 700; font-size: 10.5px;
   align-self: flex-start;
   margin-bottom: 4px;
 }
@@ -155,10 +149,10 @@ h1 { font-size: 22px; letter-spacing: -0.5px; }
 /* callout */
 .callout {
   background: #1d1f27; color: #f4f1ea; border-radius: 8px;
-  padding: 10px 14px; font-size: 10.5px; line-height: 1.45;
+  padding: 10px 14px; font-size: 11.5px; line-height: 1.45;
   border-left: 4px solid var(--accent);
 }
-.callout b { color: var(--accent); display: block; font-size: 11px;
+.callout b { color: var(--accent); display: block; font-size: 12px;
   text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
 .callout em { color: #fff; }
 
@@ -167,7 +161,7 @@ code {
   font-family: "SF Mono", Menlo, Consolas, monospace;
   background: color-mix(in srgb, var(--accent) 15%, white);
   color: #1d1f27;
-  padding: 1px 5px; border-radius: 3px; font-size: 10px;
+  padding: 1px 5px; border-radius: 3px; font-size: 11px;
 }
 
 /* footer */
@@ -177,20 +171,20 @@ footer {
   display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
-.setup { font-size: 10px; color: #f4f1ea; opacity: 0.85; }
-.setup b { color: #f4f1ea; display: block; font-size: 10px;
+.setup { font-size: 11px; color: #f4f1ea; opacity: 0.85; }
+.setup b { color: #f4f1ea; display: block; font-size: 11px;
   text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
 .setup-cmd {
   font-family: "SF Mono", Menlo, Consolas, monospace;
   background: var(--accent); color: #fff;
-  padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;
+  padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: 600;
   display: inline-block; text-decoration: none;
 }
 a.setup-cmd:hover { filter: brightness(1.1); }
-.setup-meta { margin-top: 4px; font-size: 9px; opacity: 0.7; }
+.setup-meta { margin-top: 4px; font-size: 10px; opacity: 0.7; }
 .links {
   display: flex; flex-direction: column; align-items: flex-end;
-  gap: 4px; font-size: 9.5px;
+  gap: 4px; font-size: 10.5px;
 }
 .footer-right {
   display: flex; flex-direction: column; align-items: flex-end;
@@ -198,6 +192,20 @@ a.setup-cmd:hover { filter: brightness(1.1); }
 }
 .links a { color: #f4f1ea; text-decoration: none; opacity: 0.8; }
 .links a::before { content: "\2192  "; color: var(--accent); }
+
+@media screen {
+  /* Bump descriptive/body copy by 1px for easier on-screen reading.
+     Headers, labels, badges, and code keep their print sizes. */
+  .hero p   { font-size: 13.5px; }
+  .quote    { font-size: 13px; }
+  .surface  { font-size: 12.5px; }
+  .view     { font-size: 12px; }
+  .chip     { font-size: 12.5px; }
+  .tip      { font-size: 12.5px; }
+  .bullet   { font-size: 12.5px; }
+  .pattern  { font-size: 12px; }
+  .callout  { font-size: 12.5px; }
+}
 
 @media print {
   .page {
