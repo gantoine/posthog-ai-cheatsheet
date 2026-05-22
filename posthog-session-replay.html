@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PostHog Session Replay Cheatsheet</title>
+<link rel="stylesheet" href="posthog-cheatsheet.css">
+<style>:root { --accent: #f35454; }</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <div class="logo"><svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 .857a.863.863 0 0 0-.46-.776.758.758 0 0 0-.852.118l-2.4 2.143A.883.883 0 0 0 9 3c0 .254.105.496.288.658l2.4 2.143c.238.213.57.26.851.118A.863.863 0 0 0 13 5.143V4.062A8.001 8.001 0 0 1 12 20 8 8 0 0 1 5.777 6.972a1 1 0 0 0-1.554-1.258A9.962 9.962 0 0 0 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.185-3.947-9.449-9-9.95V.856ZM9 8.703c0-.547.611-.884 1.09-.6l5.564 3.297a.693.693 0 0 1 0 1.2l-5.565 3.297c-.478.284-1.089-.053-1.089-.6V8.703Z"/></svg></div>
+      <div>
+        <h1>Session Replay Cheatsheet</h1>
+        <div class="tagline">A re-rendered DOM of what the user actually saw and did, not a video.</div>
+      </div>
+    </div>
+    <img class="ph-logo ph-logo-header" src="https://posthog.com/brand/posthog-logo-white.svg" alt="PostHog">
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Why use it</h2>
+      <p>Session Replay is a <b>re-rendered DOM</b> (not a video) of what the user actually saw and did. The strongest pattern is using it as the <em>“why”</em> after some other signal flagged a <em>“what”</em>, like a funnel drop, an error, an experiment arm, an anomalous session duration.</p>
+    </div>
+    <div class="quote">It also doubles as a <strong>“what's weird right now”</strong> radar for abuse, fraud, even inbound-sales signals.</div>
+  </section>
+
+  <div class="main">
+    <div class="row">
+    <div class="card">
+      <h3><span class="num">1</span> Tips &amp; tricks</h3>
+      <div class="card-body"><div class="tips wide"><div class="tip"><div class="tnum">1</div><div><b>Replay is a DOM, not a video.</b> Open the browser inspector mid-playback. Elements respond to clicks and hovers. Grab selectors and text without rewatching.</div></div><div class="tip"><div class="tnum">2</div><div><b>Don't start in the chronological list.</b> All strong workflows <em>enter</em> Replay from a signal. As one PM put it: “it always seems backwards to go to the chronological list first.”</div></div><div class="tip"><div class="tnum">3</div><div><b>Saved filters are the underrated power feature.</b> Heavy users said they didn't discover saved filters/collections for months. Difference between “scrolling forever” and “10 sessions worth watching this morning.”</div></div><div class="tip"><div class="tnum">4</div><div><b>Pair Replay with Error Tracking on-call.</b> Backend exception → matching replay → see the UI state. One on-call eng found a stale-sidebar bug invisible in logs alone.</div></div><div class="tip"><div class="tnum">5</div><div><b>Use PostHog AI for hypothesis-driven group analysis.</b> Ask “users who clicked X and ran into issues” rather than “summarize this session.” That's how the most mature Replay users work.</div></div><div class="tip"><div class="tnum">6</div><div><b>Replay catches things you weren't looking for.</b> Real-time abuse, fraud signals, inbound-sales discovery. Multiple customers use it as a <em>“what's weird right now”</em> radar, not just retro analysis.</div></div></div></div>
+    </div>
+    </div>
+<div class="row">
+    <div class="card">
+      <h3><span class="num">2</span> Customer patterns + bonus</h3>
+      <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🎵 Solo SaaS founder</h4><span class="stat">10,000-store deal</span><div class="body">Watches Replay daily as a fraud + inbound-sales radar. Midnight activity spike → opened the replay expecting abuse → found someone bulk-generating commercial music. Cross-referenced the email, started a sales conversation.</div><div class="punch">For the right product, Replay isn't retro debugging. It's a real-time business signal.</div></div><div class="pattern"><h4>🚨 EdTech on-call</h4><span class="stat">exception → root cause</span><div class="body">Top-15 Replay user at Series B edtech. Backend error fires → opens matching replay → sees the UI state. Found a stale-sidebar bug letting users “request help” on deleted content, all invisible in logs alone.</div><div class="punch">The bridge from exception to root cause is the killer on-call workflow.</div></div><div class="pattern"><h4>☕ Berlin AI startup</h4><span class="stat">watch parties</span><div class="body">11-person team browses recordings together weekly, partly targeted, partly “morning coffee” mode. Disproved an internal assumption: users gave 2–3 min of thoughtful answers to open-ended quiz prompts.</div><div class="punch">Watch parties turn Replay into a team ritual that surfaces qualitative truths dashboards can't.</div></div></div></div>
+    </div>
+    </div>
+<div class="row">
+    <div class="callout">
+      <b>Bonus: Replay as evidence</b>
+      Some customers use Replay outside analytics entirely, as evidence in legal/fraud cases, and as <em>“you did do that”</em> proof in support tickets and disputes. Not glamorous, but load-bearing for some teams.
+    </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="setup">
+      <b>Start here</b>
+      <a class="setup-cmd" href="https://posthog.com/docs/session-replay/tutorials" target="_blank" rel="noopener">posthog.com/docs/session-replay/tutorials</a>
+      <div class="setup-meta">Filtering recordings walkthrough · Session Replay product page · AI summaries</div>
+    </div>
+    <div class="footer-right">
+      <div class="links">
+        <a href="https://posthog.com/docs/session-replay/tutorials" target="_blank" rel="noopener">posthog.com/docs/session-replay/tutorials</a><a href="https://posthog.com/session-replay" target="_blank" rel="noopener">posthog.com/session-replay</a><a href="https://posthog.com/tutorials/filter-session-recordings" target="_blank" rel="noopener">posthog.com/tutorials/filter-session-recordings</a><a href="https://posthog.com/docs/error-tracking" target="_blank" rel="noopener">posthog.com/docs/error-tracking</a>
+      </div>
+    </div>
+  </footer>
+  <img class="ph-logo ph-logo-bottom" src="https://posthog.com/brand/posthog-logomark.svg" alt="PostHog">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PostHog Heatmaps Cheatsheet</title>
+<link rel="stylesheet" href="posthog-cheatsheet.css">
+<style>:root { --accent: #f7a501; }</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <div class="logo"><svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 9a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1ZM10 9a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1Zm3.5 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 9.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm3.5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm3.5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm-7-.5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1ZM10 9a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1Zm3-.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5.75C2 4.784 2.784 4 3.75 4h16.5c.966 0 1.75.784 1.75 1.75v6.5a.75.75 0 0 1-1.5 0v-6.5a.25.25 0 0 0-.25-.25H3.75a.25.25 0 0 0-.25.25v13.5c0 .138.112.25.25.25h8.5a.75.75 0 0 1 0 1.5h-8.5A1.75 1.75 0 0 1 2 19.25V5.75Zm11.47 7.72a.75.75 0 0 1 .75-.187l7 2.154a.75.75 0 0 1 .115 1.388l-3.007 1.503-1.503 3.007a.75.75 0 0 1-1.388-.114l-2.154-7a.75.75 0 0 1 .187-.751Zm1.663 1.663 1.187 3.857.778-1.556a.75.75 0 0 1 .336-.336l1.556-.778-3.856-1.187Z"/></svg></div>
+      <div>
+        <h1>Heatmaps Cheatsheet</h1>
+        <div class="tagline">Free, near-zero perf cost for clicks, scrolls, and movement, all next to your analytics.</div>
+      </div>
+    </div>
+    <img class="ph-logo ph-logo-header" src="https://posthog.com/brand/posthog-logo-white.svg" alt="PostHog">
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Why use it</h2>
+      <p>Free, near-zero perf cost click/scroll/movement overlays. Data piggybacks on autocapture events you already capture, with <b>no separate SDK, no consent banner, no billing line</b>. The differentiator: heatmap data lives next to your analytics, so you can pivot from click cluster → funnel → replay → experiment.</p>
+    </div>
+    <div class="quote">Most common mistake: open the Heatmap and stop. <strong>Open all three views.</strong></div>
+  </section>
+
+  <div class="main">
+    <div class="row">
+    <div class="card">
+      <h3><span class="num">1</span> Three views, not one</h3>
+      <div class="card-body"><div class="threeview"><div class="view"><b class="head">Heatmap</b><span class="sub">Position-based</span>Clicks/movements by pixel. Clicks don't need a clickable element. See where users <em>tried</em> to click on dead pixels. <b>Open for discovery.</b></div><div class="view"><b class="head">Clickmap</b><span class="sub">Element-based</span>Autocapture badge on each clickable element with total + rage-click counts. Resilient to layout shifts. <b>Open for direct comparison.</b></div><div class="view"><b class="head">Scrollmap</b><span class="sub">Depth gradient</span>Requires <code>$pageleave</code> events. Is the hero CTA above the fold? Does anyone reach the FAQ? <b>Open for reach.</b></div></div></div>
+    </div>
+    </div>
+<div class="row">
+    <div class="card">
+      <h3><span class="num">2</span> Tips &amp; tricks</h3>
+      <div class="card-body"><div class="tips wide"><div class="tip"><div class="tnum">1</div><div><b>Use the Toolbar, not the in-app Heatmaps scene.</b> Toolbar overlays heatmaps on the live site. Works on auth-gated pages, catches ~10× more issues, lets you create actions from elements without leaving the page.</div></div><div class="tip"><div class="tnum">2</div><div><b>Pair heatmaps with rage-click-filtered Replays.</b> <code>$rageclick</code> + <code>feature_flag = new-checkout</code> = debugging a release in two clicks. Jump from Replay timestamp straight to the aggregate heatmap.</div></div><div class="tip"><div class="tnum">3</div><div><b>Wildcard URLs for templated pages.</b> <code>/products/*</code>, <code>/posts/*</code>, <code>/users/:id</code>. Difference between “12 clicks, meaningless” and “12,000 clicks, here's what actually happens.”</div></div><div class="tip"><div class="tnum">4</div><div><b>Scroll depth is a property on every pageview.</b> Use <code>$prev_pageview_max_scroll_percentage</code> as a filter/metric anywhere: funnels, experiments. “Reached 80% before clicking CTA.”</div></div><div class="tip"><div class="tnum">5</div><div><b>Autocapture clicks ARE the quantitative heatmap signal.</b> Query click counts in HogQL, use them as experiment goals, hand them to an agent via MCP. Same data, three surfaces.</div></div></div></div>
+    </div>
+    </div>
+<div class="row">
+    <div class="card">
+      <h3><span class="num">3</span> Customer patterns + bonus</h3>
+      <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🌐 Webshare</h4><span class="stat">4–5% lifts</span><div class="body">Collapsed Mixpanel + Hotjar + FullStory into PostHog. ~20 experiments at any moment; small UI tweaks drive lifts they wouldn't have spotted without heatmap → replay → experiment pointing at the same place.</div><div class="punch">It's not the heatmap alone. It's the heatmap as the trigger for the experiment.</div></div><div class="pattern"><h4>✍️ Grantable</h4><span class="stat">“pull more in”</span><div class="body">AI grant-writing tool replaced Microsoft Clarity with PostHog Heatmaps as part of a consolidation stack (also replaced Sentry, Intercom, Zapier-flavored workflows).</div><div class="punch">Cheapest way to “buy” heatmaps is to use the one shipping next to your analytics.</div></div><div class="pattern"><h4>🤖 Bot detection bonus</h4><span class="stat">(0, 0) clusters</span><div class="body">Some teams use heatmap click data to flag automated traffic that user-agent strings miss, like scripts hammering coordinate <code>(0, 0)</code> to defeat idle timers. Filter them, every insight downstream gets cleaner.</div><div class="punch">Heatmaps as a data-quality tool, not just UX.</div></div></div></div>
+    </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="setup">
+      <b>Start here</b>
+      <a class="setup-cmd" href="https://posthog.com/docs/toolbar/heatmaps" target="_blank" rel="noopener">posthog.com/docs/toolbar/heatmaps</a>
+      <div class="setup-meta">Toolbar docs · Scroll-depth tutorial · React walkthrough · Webshare / Kilo Code / Grantable case studies</div>
+    </div>
+    <div class="footer-right">
+      <div class="links">
+        <a href="https://posthog.com/docs/toolbar/heatmaps" target="_blank" rel="noopener">posthog.com/docs/toolbar/heatmaps</a><a href="https://posthog.com/docs/toolbar" target="_blank" rel="noopener">posthog.com/docs/toolbar</a><a href="https://posthog.com/tutorials/scroll-depth" target="_blank" rel="noopener">posthog.com/tutorials/scroll-depth</a><a href="https://posthog.com/customers/webshare" target="_blank" rel="noopener">posthog.com/customers/webshare</a>
+      </div>
+    </div>
+  </footer>
+  <img class="ph-logo ph-logo-bottom" src="https://posthog.com/brand/posthog-logomark.svg" alt="PostHog">
+
+</div>
+</body>
+</html>

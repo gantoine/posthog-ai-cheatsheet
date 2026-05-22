@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PostHog AI Cheatsheet</title>
+<link rel="stylesheet" href="posthog-cheatsheet.css">
+<style>:root { --accent: #b62ad9; }</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <div class="logo"><svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 9c-1.356 0-2.857.857-4.284 2.9a.174.174 0 0 0 0 .2C9.143 14.142 10.644 15 12 15c1.356 0 2.857-.857 4.284-2.9l.615.428-.615-.429a.174.174 0 0 0 0-.198C14.857 9.857 13.356 9 12 9Zm0-1.5c2.043 0 3.942 1.29 5.514 3.542.401.575.401 1.341 0 1.916C15.942 15.209 14.044 16.5 12 16.5c-2.043 0-3.942-1.29-5.514-3.542a1.674 1.674 0 0 1 0-1.916C8.058 8.791 9.956 7.5 12 7.5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M18.01 5.99A8.504 8.504 0 0 0 7.836 4.587a.75.75 0 1 1-.735-1.307c3.81-2.143 8.726-1.595 11.97 1.649 3.244 3.244 3.792 8.16 1.65 11.97a.75.75 0 1 1-1.308-.735A8.504 8.504 0 0 0 18.01 5.99ZM4.3 6.815a.75.75 0 0 1 .287 1.021 8.504 8.504 0 0 0 11.577 11.577.75.75 0 0 1 .735 1.308c-3.81 2.142-8.726 1.594-11.97-1.65-3.244-3.244-3.793-8.16-1.65-11.97a.75.75 0 0 1 1.022-.286ZM10.75 12a1.25 1.25 0 1 1 2.5 0 1.25 1.25 0 0 1-2.5 0Z" clip-rule="evenodd"/></svg></div>
+      <div>
+        <h1>AI Cheatsheet</h1>
+        <div class="tagline">Max + MCP as the chat/agent surface for everything PostHog.</div>
+      </div>
+    </div>
+    <img class="ph-logo ph-logo-header" src="https://posthog.com/brand/posthog-logo-white.svg" alt="PostHog">
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Why use it</h2>
+      <p>PostHog AI is the agent surface for <b>insights, queries, cohorts, flags, and dashboards</b>. In-app sidebar (Max), MCP in your coding agent, PostHog in Slack: same idea on different surfaces.</p>
+    </div>
+    <div class="quote"><strong>Don't use the UI.</strong> Ask the agent to do what you need.</div>
+  </section>
+
+  <div class="main">
+    <div class="row">
+    <div class="card">
+      <h3><span class="num">1</span> Where to access it</h3>
+      <div class="card-body"><div class="surfaces"><div class="surface"><b>In-app sidebar (Max)</b>Chat assistant inside posthog.com</div><div class="surface"><b>MCP server</b>Claude Code, Cursor, Codex, Gemini, Claude Desktop, Windsurf, Zed, VS Code</div><div class="surface"><b>Slack</b>Answers questions and writes code in your team Slack</div><div class="surface"><b>Skills</b>Reusable instruction units agents call via MCP. Teach once, reuse everywhere.</div></div></div>
+    </div>
+    
+    <div class="card">
+      <h3><span class="num">2</span> Tips &amp; tricks</h3>
+      <div class="card-body"><div class="tips"><div class="tip"><div class="tnum">1</div><div><b>Preview HogQL before you persist.</b> Run <code>query-generate-hogql-from-question</code> first, eyeball the SQL, then call <code>insight-create-from-query</code>.</div></div><div class="tip"><div class="tnum">2</div><div><b>AI is the SQL finisher, not the author.</b> Write SQL to ~80–90% yourself, then let Max/MCP close the gap. Best speed-to-correctness ratio.</div></div><div class="tip"><div class="tnum">3</div><div><b>MCP calls are almost free, so use them in CI.</b> Ask “is checkout worse than last week?” <em>before</em> you merge. Cheaper than post-deploy alerts.</div></div><div class="tip"><div class="tnum">4</div><div><b>Review every tool call.</b> MCP servers are prompt-injection targets. A hostile event could trick an LLM into writing flags. Default to manual approval.</div></div></div></div>
+    </div>
+    </div>
+<div class="row">
+    <div class="card">
+      <h3><span class="num">3</span> Customer patterns in the wild</h3>
+      <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🛠 AI app-builder</h4><span class="stat">multi-stack</span><div class="body">Engineer uses LLM analytics + experiments + flags as one stack. Spotted unequal attention allocation in a trace, rolled fix behind a flag without leaving the surface.</div><div class="punch">Power move: A/B the observability tools themselves, not just the prompts.</div></div><div class="pattern"><h4>🐘 Dev-first Postgres</h4><span class="stat">10× YoY</span><div class="body">Consolidated 3+ analytics tools onto PostHog. Used AI for gnarly SQL their PMs couldn't write, then found AI code-gen as top acquisition channel.</div><div class="punch">AI-generated SQL turned a PM bottleneck into a discovery channel.</div></div><div class="pattern"><h4>🔎 AI semantic search</h4><span class="stat">days → 1 session</span><div class="body">Eng lead pairs AI assistant with session replay: AI finishes the last 10–20% of SQL, replays show <em>why</em> anomalies happened.</div><div class="punch">Analyst-to-engineer round trip collapses to one debugging session.</div></div></div></div>
+    </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="setup">
+      <b>One-liner setup</b>
+      <span class="setup-cmd">npx @posthog/wizard@latest mcp add</span>
+      <div class="setup-meta">Works with Cursor · Claude Code · Claude Desktop · Codex · VS Code · Windsurf · Zed</div>
+    </div>
+    <div class="footer-right">
+      <div class="links">
+        <a href="https://posthog.com/docs/posthog-ai" target="_blank" rel="noopener">posthog.com/docs/posthog-ai</a><a href="https://posthog.com/docs/model-context-protocol" target="_blank" rel="noopener">posthog.com/docs/model-context-protocol</a><a href="https://posthog.com/docs/product-analytics/build-insights-mcp" target="_blank" rel="noopener">posthog.com/docs/product-analytics/build-insights-mcp</a><a href="https://github.com/PostHog/mcp" target="_blank" rel="noopener">github.com/PostHog/mcp</a>
+      </div>
+    </div>
+  </footer>
+  <img class="ph-logo ph-logo-bottom" src="https://posthog.com/brand/posthog-logomark.svg" alt="PostHog">
+
+</div>
+</body>
+</html>

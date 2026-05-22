@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PostHog Funnels Cheatsheet</title>
+<link rel="stylesheet" href="posthog-cheatsheet.css">
+<style>:root { --accent: #2f80fa; }</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <div class="logo"><svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5ZM3 11a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2ZM3 17a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/></svg></div>
+      <div>
+        <h1>Funnels Cheatsheet</h1>
+        <div class="tagline">Connective tissue between every other PostHog product</div>
+      </div>
+    </div>
+    <img class="ph-logo ph-logo-header" src="https://posthog.com/brand/posthog-logo-white.svg" alt="PostHog">
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Why use it</h2>
+      <p>Funnels are the <b>connective tissue</b> between every other PostHog product. Build a funnel for a key flow, click the drop-off step, jump straight into the replays of users who didn't convert.</p>
+    </div>
+    <div class="quote">Funnels tell you <strong>that</strong> something changed. Replay tells you <strong>why</strong>.</div>
+  </section>
+
+  <div class="main">
+    <div class="row">
+    <div class="card">
+      <h3><span class="num">1</span> Tips &amp; tricks</h3>
+      <div class="card-body"><div class="tips wide"><div class="tip"><div class="tnum">1</div><div><b>Funnel = entry point into Replay, not the replay list.</b> Strongest pattern across 5+ customers. Funnel acts as a selection filter, since the raw replay feed is too noisy past a few hundred sessions/day.</div></div><div class="tip"><div class="tnum">2</div><div><b>Break funnels down by something you don't have a hypothesis for.</b> One PM found her product had two different customer verticals only after breaking down trial→paid. Don't just slice by browser/country.</div></div><div class="tip"><div class="tnum">3</div><div><b>Validate UI changes with a funnel <em>before</em> you A/B test.</b> Cheap pre-experiment validation, much faster than waiting for a test to power. Saved one team from rolling a regressive age-verification step.</div></div><div class="tip"><div class="tnum">4</div><div><b>Funnel position is a prioritization primitive.</b> Errors on a funnel step matter ~10× more than errors elsewhere. Same logic for alerts, surveys, NPS prompts. Reuse via funnel-actor cohorts.</div></div><div class="tip"><div class="tnum">5</div><div><b>Tune the mechanics. Three settings first-timers leave default.</b> <b>Strict vs. unordered</b> · <b>Conversion window</b> (set to your real cycle, not 14 days) · <b>Exclusion steps</b> to filter exit paths.</div></div></div></div>
+    </div>
+    </div>
+<div class="row">
+    <div class="card">
+      <h3><span class="num">2</span> Customer patterns in the wild</h3>
+      <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🎨 AI creative-tools PM</h4><span class="stat">2 hidden audiences</span><div class="body">Built trial→paid funnel as her main dashboard. Breaking it down revealed her product had two different verticals (B2C creators vs. event organizers) converting at very different rates.</div><div class="punch">Funnel as discovery tool, not just a KPI.</div></div><div class="pattern"><h4>🇪🇺 EdTech (interview prep)</h4><span class="stat">daily ritual</span><div class="body">Engineers run a daily replay-watching ritual scoped to four named flows. One funnel per flow → click highest drop-off → watch failed sessions. Shipped dozens of small UI fixes from this loop.</div><div class="punch">A daily funnel-driven replay ritual finds friction no monitoring tool would alert on.</div></div><div class="pattern"><h4>🎓 Education non-profit</h4><span class="stat">saved weeks</span><div class="body">Suspected an age-verification step would tank conversion. Shipped to a slice → watched the funnel → saw the drop → replays showed where users got confused → redesigned before wide rollout.</div><div class="punch">Funnel + replay loop is the cheapest insurance against shipping bad UX.</div></div></div></div>
+    </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="setup">
+      <b>Canonical entry</b>
+      <a class="setup-cmd" href="https://posthog.com/docs/product-analytics/funnels" target="_blank" rel="noopener">posthog.com/docs/product-analytics/funnels</a>
+      <div class="setup-meta">Plus data-warehouse insights for fancy funnels with Stripe / Postgres data</div>
+    </div>
+    <div class="footer-right">
+      <div class="links">
+        <a href="https://posthog.com/docs/product-analytics/funnels" target="_blank" rel="noopener">posthog.com/docs/product-analytics/funnels</a><a href="https://posthog.com/docs/data-warehouse/insights" target="_blank" rel="noopener">posthog.com/docs/data-warehouse/insights</a><a href="https://posthog.com/docs/session-replay" target="_blank" rel="noopener">posthog.com/docs/session-replay</a><a href="https://posthog.com/docs/experiments" target="_blank" rel="noopener">posthog.com/docs/experiments</a>
+      </div>
+    </div>
+  </footer>
+  <img class="ph-logo ph-logo-bottom" src="https://posthog.com/brand/posthog-logomark.svg" alt="PostHog">
+
+</div>
+</body>
+</html>

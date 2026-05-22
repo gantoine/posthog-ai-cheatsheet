@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PostHog Feature Flags Cheatsheet</title>
+<link rel="stylesheet" href="posthog-cheatsheet.css">
+<style>:root { --accent: #30abc6; }</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <div class="logo"><svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 11.75A5.75 5.75 0 0 1 7.25 6h10.5a5.75 5.75 0 0 1 5.75 5.75v.5A5.75 5.75 0 0 1 17.75 18H7.25a5.75 5.75 0 0 1-5.75-5.75v-.5Zm16-4.25a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"/></svg></div>
+      <div>
+        <h1>Feature Flags Cheatsheet</h1>
+        <div class="tagline">Decouple deploy from release. Ship disabled, flip slowly, watch.</div>
+      </div>
+    </div>
+    <img class="ph-logo ph-logo-header" src="https://posthog.com/brand/posthog-logo-white.svg" alt="PostHog">
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Why use it</h2>
+      <p>Feature flags decouple <b>deploy</b> from <b>release</b>. Ship disabled, flip for a small %, watch, widen. The strongest customer pattern: flag every release, filter replays by that flag, watch the first 20–50 real sessions before going wider.</p>
+    </div>
+    <div class="quote"><strong>Flag everything.</strong> Low cost, free optionality downstream.</div>
+  </section>
+
+  <div class="main">
+    <div class="row">
+    <div class="card">
+      <h3><span class="num">1</span> Tips &amp; tricks</h3>
+      <div class="card-body"><div class="tips wide"><div class="tip"><div class="tnum">1</div><div><b>Flag-filtered replay = your deployment monitor.</b> Flip for a small %, open Replay filtered by the flag, watch 20–50 sessions. Faster than alerting; shows behavior, not error counts. <em>3+ teams in research.</em></div></div><div class="tip"><div class="tnum">2</div><div><b>Flag everything by default.</b> “We try to feature flag everything we are releasing.” Kill switches, gradual rollouts, A/B, rollbacks all become free downstream.</div></div><div class="tip"><div class="tnum">3</div><div><b>Flags are runtime UX config, not just code branches.</b> One AI team drives a “we're seeing issues” banner via a flag toggled by an error-monitor webhook. Wire toggles to <em>ops signals</em>, not humans.</div></div><div class="tip"><div class="tnum">4</div><div><b>History tab is your audit log.</b> Growth team uses it as primary “what changed and when?” when investigating data anomalies, especially valuable when AI agents have flag access.</div></div><div class="tip"><div class="tnum">5</div><div><b>Use flag conditions for survey targeting.</b> Skip weekly manual cohort refreshes. Flag conditions in survey targeting solve the same problem with no maintenance loop.</div></div></div></div>
+    </div>
+    </div>
+<div class="row">
+    <div class="card">
+      <h3><span class="num">2</span> Customer patterns in the wild</h3>
+      <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>⚡ Solo-dev AI startup</h4><span class="stat">automated honesty</span><div class="body">Wired error-monitor webhook to a flag controlling an in-product status banner. OOM errors → banner flips automatically → users see “we're experiencing issues.” No human in loop.</div><div class="punch">Flags closed the gap between “infra knows” and “users know.”</div></div><div class="pattern"><h4>🏗 B2B infra (~30 eng)</h4><span class="stat">flag-rollout + replay</span><div class="body">Every feature ships behind a flag. As soon as it's live, they filter recordings by that flag and watch employees use it in-office before widening to customers.</div><div class="punch">Caught issues pre-customer-rollout without writing any custom monitoring.</div></div><div class="pattern"><h4>🛒 Mid-market ecom (ex-Heap)</h4><span class="stat">one workflow</span><div class="body">Director of eng listed flags + experiments as explicit pull factors (Heap had neither). First A/B test on a “Shop Now” redesign, used flag-filtered replay to understand <em>why</em>.</div><div class="punch">Flags + experiments + replay aren't three tools. They're one workflow.</div></div></div></div>
+    </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="setup">
+      <b>Canonical entry</b>
+      <a class="setup-cmd" href="https://posthog.com/docs/feature-flags" target="_blank" rel="noopener">posthog.com/docs/feature-flags</a>
+      <div class="setup-meta">Creating flags · Rolling out · Multivariate · Local evaluation · Flags + Experiments</div>
+    </div>
+    <div class="footer-right">
+      <div class="links">
+        <a href="https://posthog.com/docs/feature-flags" target="_blank" rel="noopener">posthog.com/docs/feature-flags</a><a href="https://posthog.com/docs/feature-flags/local-evaluation" target="_blank" rel="noopener">posthog.com/docs/feature-flags/local-evaluation</a><a href="https://posthog.com/docs/experiments" target="_blank" rel="noopener">posthog.com/docs/experiments</a><a href="https://posthog.com/docs/session-replay" target="_blank" rel="noopener">posthog.com/docs/session-replay</a>
+      </div>
+    </div>
+  </footer>
+  <img class="ph-logo ph-logo-bottom" src="https://posthog.com/brand/posthog-logomark.svg" alt="PostHog">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PostHog Experiments Cheatsheet</title>
+<link rel="stylesheet" href="posthog-cheatsheet.css">
+<style>:root { --accent: #a78bfa; }</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <div class="logo"><svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 6.75A.75.75 0 0 1 7.75 6h8.5a.75.75 0 0 1 0 1.5H16v3.233a31.851 31.851 0 0 0 .885 1.006c.322.358.665.738.995 1.132.72.86 1.434 1.842 1.83 2.948.18.505.29 1.04.29 1.597A4.584 4.584 0 0 1 15.416 22H8.584A4.584 4.584 0 0 1 4 17.416c0-.558.11-1.092.29-1.597.396-1.106 1.11-2.089 1.83-2.948.33-.394.673-.774.995-1.132l.093-.104c.287-.317.553-.616.792-.902V7.5h-.25A.75.75 0 0 1 7 6.75Zm2.5.75v3.763l-.164.206c-.31.386-.662.78-1.013 1.17l-.091.101c-.325.361-.65.722-.962 1.095-.345.41-.66.82-.928 1.234l.098-.015c.895-.137 2.053-.275 2.99-.25 1.137.03 2 .302 2.774.545l.021.007c.779.245 1.469.46 2.384.484.797.02 1.846-.1 2.725-.234.211-.032.41-.065.59-.095-.313-.566-.728-1.12-1.194-1.676-.312-.373-.637-.734-.962-1.095l-.091-.101c-.351-.39-.703-.784-1.013-1.17l-.164-.206V7.5h-5Z"/><path d="M11 4a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm4-1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg></div>
+      <div>
+        <h1>Experiments Cheatsheet</h1>
+        <div class="tagline">Causal impact, inside the same tool as your events, flags, and replays</div>
+      </div>
+    </div>
+    <img class="ph-logo ph-logo-header" src="https://posthog.com/brand/posthog-logo-white.svg" alt="PostHog">
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Why use it</h2>
+      <p>Test causal impact, all inside the same tool as your <b>events, flags, replays, and LLM traces</b>. The real payoff isn't the first A/B; it's the loop: ship behind a flag → watch the funnel → drill into replay → decide.</p>
+    </div>
+    <div class="quote">For AI products: <strong>“the change got worse”</strong> doesn't show up as a crash.</div>
+  </section>
+
+  <div class="main">
+    <div class="row">
+    <div class="card">
+      <h3><span class="num">1</span> Test types you can run</h3>
+      <div class="card-body"><div class="chips"><div class="chip"><b>A/A</b><span>sanity-check setup</span></div><div class="chip"><b>A/B/n</b><span>>2 variants</span></div><div class="chip"><b>Holdout</b><span>long-term combined effect</span></div><div class="chip"><b>Redirect</b><span>split traffic between URLs</span></div><div class="chip"><b>Fake door</b><span>measure demand pre-build</span></div><div class="chip"><b>New-user</b><span>first-time users only</span></div><div class="chip"><b>LLM A/B</b><span>prompts, models, agents</span></div></div></div>
+    </div>
+    
+    <div class="card">
+      <h3><span class="num">2</span> Tips &amp; tricks</h3>
+      <div class="card-body"><div class="tips"><div class="tip"><div class="tnum">1</div><div><b>Bootstrap flags on the server, not the client.</b> Browser fetch = flash of control variant + ad-blocker holes. Pass the flag with the page render.</div></div><div class="tip"><div class="tnum">2</div><div><b>Run an A/A test first.</b> Both variants identical. A persistent gap signals a setup bug: events dropped, users bouncing between variants, bad split.</div></div><div class="tip"><div class="tnum">3</div><div><b>Filter ineligible users <em>before</em> the flag check.</b> Otherwise everyone hitting that code path gets an exposure, lift gets diluted by zero-effect users.</div></div><div class="tip"><div class="tnum">4</div><div><b>Don't act before you hit sample size.</b> Looking is fine. Acting on early numbers isn't. Watch win prob &amp; effect size over time, not today.</div></div><div class="tip"><div class="tnum">5</div><div><b>Test the experiment itself with 5–10% first.</b> If the variant is broken at 50% rollout, users are contaminated, and you can't restart cleanly.</div></div></div></div>
+    </div>
+    </div>
+<div class="row">
+    <div class="card">
+      <h3><span class="num">3</span> Customer patterns in the wild</h3>
+      <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🤝 Co-founder matching</h4><span class="stat">+40% messages</span><div class="body">4-variant test hiding stale profiles at 3/6/9/12 weeks; 6-week won (+35% match acceptance). Same team killed a feature when basically nobody used the minimal version.</div><div class="punch">Experiments aren't just for picking winners. They're for picking <em>how aggressive</em>, and killing without sunk-cost guilt.</div></div><div class="pattern"><h4>⚖️ AI model comparison</h4><span class="stat">19× volume</span><div class="body">Anonymous-LLM voting product. Every UI change risks skewing rankings, so they experiment on everything: button placement, swipe redesigns, AI routers. Event volume 19× in 6 months without ranking drift.</div><div class="punch">Experiments aren't just about lift. They're about not silently breaking the dataset you depend on.</div></div><div class="pattern"><h4>⚙️ AI app-building platform</h4><span class="stat">flags + exp + LLM</span><div class="body">Flags for gradual rollouts, experiments for new ideas, traces for oddness. When GPT-5 shipped weird, they didn't guess. They inspected traces and found attention-distribution changes.</div><div class="punch">“The change got worse” doesn't show up as a crash; you need trace-level data to even notice.</div></div></div></div>
+    </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="setup">
+      <b>Start here</b>
+      <a class="setup-cmd" href="https://posthog.com/docs/experiments/start-here" target="_blank" rel="noopener">posthog.com/docs/experiments/start-here</a>
+      <div class="setup-meta">Per-framework tutorials: Next.js · Django · Rails · iOS · LLM A/B</div>
+    </div>
+    <div class="footer-right">
+      <div class="links">
+        <a href="https://posthog.com/docs/experiments/start-here" target="_blank" rel="noopener">posthog.com/docs/experiments/start-here</a><a href="https://posthog.com/docs/experiments/best-practices" target="_blank" rel="noopener">posthog.com/docs/experiments/best-practices</a><a href="https://posthog.com/docs/experiments/tracking-long-term-metrics" target="_blank" rel="noopener">posthog.com/docs/experiments/tracking-long-term-metrics</a><a href="https://posthog.com/docs/experiments/data-warehouse" target="_blank" rel="noopener">posthog.com/docs/experiments/data-warehouse</a>
+      </div>
+    </div>
+  </footer>
+  <img class="ph-logo ph-logo-bottom" src="https://posthog.com/brand/posthog-logomark.svg" alt="PostHog">
+
+</div>
+</body>
+</html>

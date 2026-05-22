@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PostHog Cohorts Cheatsheet</title>
+<link rel="stylesheet" href="posthog-cheatsheet.css">
+<style>:root { --accent: #36c46f; }</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <div class="logo"><svg width="100%" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3.5 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm13-2.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm-4 2.5a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm6.692 7.268c-1.381-.87-3.024-1-4.48-.395a.75.75 0 0 1-.575-1.385 6.342 6.342 0 0 1 5.855.511c1.796 1.133 3.171 3.188 3.628 6.067.17 1.073-.698 1.934-1.693 1.934H16.75a.75.75 0 0 1 0-1.5h5.177a.23.23 0 0 0 .172-.072.145.145 0 0 0 .04-.127c-.4-2.52-1.571-4.165-2.947-5.033ZM7.429 13.5c-2.384 0-4.934 1.811-5.567 5.798a.149.149 0 0 0 .04.13.228.228 0 0 0 .171.072h10.711c.073 0 .133-.03.17-.073a.149.149 0 0 0 .041-.129c-.633-3.987-3.183-5.798-5.566-5.798Zm0-1.5c3.243 0 6.319 2.476 7.047 7.063.17 1.07-.694 1.937-1.692 1.937H2.073c-.998 0-1.862-.867-1.692-1.937C1.109 14.476 4.185 12 7.429 12Z"/></svg></div>
+      <div>
+        <h1>Cohorts Cheatsheet</h1>
+        <div class="tagline">Turn “users who did X” into a reusable handle across PostHog</div>
+      </div>
+    </div>
+    <img class="ph-logo ph-logo-header" src="https://posthog.com/brand/posthog-logo-white.svg" alt="PostHog">
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Why use it</h2>
+      <p>Cohorts turn “users who did X” into a reusable handle you can target with <b>surveys, feature flags, insights, and replay filters</b>. Stop hunting through raw user lists. Build the cohort once, then <em>navigate by it</em> across PostHog.</p>
+    </div>
+    <div class="quote"><strong>Build once, navigate by it.</strong> Chained workflows, per-segment comparisons.</div>
+  </section>
+
+  <div class="main">
+    <div class="row">
+    <div class="card">
+      <h3><span class="num">1</span> Honest caveats (from the team)</h3>
+      <div class="card-body"><div class="bullets"><div class="bullet"><b>No survey-answer filter yet.</b> Use survey branching for answer-level routing.</div><div class="bullet"><b>Autocapture cohorts at scale = labor-intensive.</b> Works for early-stage; refresh tax grows.</div><div class="bullet"><b>Cohort path is buried in some views.</b> Replay frustration-signals filter takes ~4 clicks.</div></div></div>
+    </div>
+    
+    <div class="card">
+      <h3><span class="num">2</span> Tips &amp; tricks</h3>
+      <div class="card-body"><div class="tips"><div class="tip"><div class="tnum">1</div><div><b>Pin cohorts to your sidebar.</b> Multiple customers got lost mid-workflow. The sidebar is customizable, but almost nobody discovers this. Cheap win.</div></div><div class="tip"><div class="tnum">2</div><div><b>Cohort drill-down as navigation, not analysis.</b> Replay path: dashboard → funnel → cohort → recording. Build the funnel, materialize the failing cohort, drill in.</div></div><div class="tip"><div class="tnum">3</div><div><b>Survey respondents → cohort → follow-up.</b> Cohort survey takers, then target with a deeper second survey or interview booking. Surveys become a research-recruitment funnel.</div></div><div class="tip"><div class="tnum">4</div><div><b>Autocapture actions as cohort seeds.</b> Pre-instrumentation products can still build behavioral cohorts: autocapture → action → cohort. Unblocks early-stage teams.</div></div><div class="tip"><div class="tnum">5</div><div><b>Geographic cohorts for multi-market redesigns.</b> US vs. UK cohorts on replay frustration signals give per-market before/after for any rollout.</div></div></div></div>
+    </div>
+    </div>
+<div class="row">
+    <div class="card">
+      <h3><span class="num">3</span> Customer patterns in the wild</h3>
+      <div class="card-body"><div class="pattern-grid"><div class="pattern"><h4>🎓 EdTech startup (~900 users)</h4><span class="stat">~50% response</span><div class="body">PM wanted to survey only students who used the AI tutor “enough.” Built a weekly autocapture → static cohort → re-target loop. Painful but worked.</div><div class="punch">Cohorts unlock behavioral targeting even without instrumented events, if you can stomach the refresh tax.</div></div><div class="pattern"><h4>🏢 B2B SaaS (1.5M MAU)</h4><span class="stat">replaced Pendo</span><div class="body">Growth PM migrated all surveys to PostHog: satisfaction survey → respondents become a cohort → that cohort gets an interview-booking survey.</div><div class="punch">Cohorts + surveys = automated user research recruitment, no standalone tooling.</div></div><div class="pattern"><h4>🌍 Multi-country SaaS</h4><span class="stat">phased rollout</span><div class="body">PM built US and UK cohorts, applied them to replay frustration signals during a beta. Clean before/after view per market, used to gate the wider rollout.</div><div class="punch">Cohorts as a per-market product-quality lens during a phased rollout.</div></div></div></div>
+    </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="setup">
+      <b>Canonical entry</b>
+      <a class="setup-cmd" href="https://posthog.com/docs/data/cohorts" target="_blank" rel="noopener">posthog.com/docs/data/cohorts</a>
+      <div class="setup-meta">Covers static vs. dynamic, behavioral cohorts with event-count + time-window conditions</div>
+    </div>
+    <div class="footer-right">
+      <div class="links">
+        <a href="https://posthog.com/docs/data/cohorts" target="_blank" rel="noopener">posthog.com/docs/data/cohorts</a><a href="https://posthog.com/docs/surveys" target="_blank" rel="noopener">posthog.com/docs/surveys</a><a href="https://posthog.com/docs/feature-flags" target="_blank" rel="noopener">posthog.com/docs/feature-flags</a><a href="https://posthog.com/docs/session-replay" target="_blank" rel="noopener">posthog.com/docs/session-replay</a>
+      </div>
+    </div>
+  </footer>
+  <img class="ph-logo ph-logo-bottom" src="https://posthog.com/brand/posthog-logomark.svg" alt="PostHog">
+
+</div>
+</body>
+</html>
