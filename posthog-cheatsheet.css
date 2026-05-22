@@ -16,6 +16,19 @@ body {
   grid-template-rows: auto auto 1fr auto;
   gap: 10px;
 }
+.back-link {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #1d1f27;
+  opacity: 0.6;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: opacity 0.15s;
+}
+.back-link:hover { opacity: 1; }
+
 header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 18px; background: #1d1f27; color: #fff; border-radius: 10px;
@@ -208,6 +221,7 @@ a.setup-cmd:hover { filter: brightness(1.1); }
 }
 
 @media print {
+  .back-link { display: none; }
   .page {
     min-height: 11in;
     height: 11in;
